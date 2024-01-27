@@ -21,12 +21,14 @@ public class GroceryList {
         String[] splitItem= splitItems(items);
         for (String item:splitItem){
             String trimmedItem= item.trim();
-            if(!checkItemIsInList(trimmedItem)){
+            if(checkItemIsInList(trimmedItem)){
                 this.items.add(trimmedItem);
+                System.out.println("Bu item zaten mevcut: " + item);
+            }else {
+                this.items.add(trimmedItem);
+                sortItems();
             }
         }
-        Collections.sort(this.items);
-      System.out.println("Items başarıyla eklendi");
 
   }
 
@@ -64,10 +66,8 @@ public class GroceryList {
 
     }
 
-
-    public void addItems(String itemsToAdd) {
+    public void sortItems() {
+        Collections.sort(this.items);
     }
 
-    public void removeItems(String itemsToRemove) {
-    }
 }

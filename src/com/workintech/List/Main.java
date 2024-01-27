@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        GroceryList groceryList=new GroceryList();
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        GroceryList groceryList = new GroceryList();
         int choice;
         do {
             System.out.println("Options:");
@@ -20,33 +20,21 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-                case 0:
-                    System.out.println("Quitting the application.");
-                    break;
                 case 1:
-                    System.out.print("Enter item(s) to add (separate multiple items with commas): ");
+                    System.out.println("eklenmesini istedğiniz elamanları giriniz.(birden fazlaysa virgül kullanın)");
                     String itemsToAdd = scanner.nextLine();
-                    groceryList.addItems(itemsToAdd);
+                    groceryList.addItem(itemsToAdd);
                     break;
                 case 2:
-                    System.out.print("Enter item(s) to remove (separate multiple items with commas): ");
+                    System.out.println("silinmesini istedğiniz elamanları giriniz.(birden fazlaysa virgül kullanın)");
                     String itemsToRemove = scanner.nextLine();
-                    groceryList.removeItems(itemsToRemove);
+                    groceryList.removeItem(itemsToRemove);
                     break;
-                case 3:
-                    System.out.print("Enter item to check: ");
-                    String itemToCheck = scanner.nextLine();
-                    groceryList.checkItemIsInList(itemToCheck);
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please enter a valid option.");
             }
-
             groceryList.printSorted();
         } while (choice != 0);
-
         scanner.close();
+
+
     }
-
-
 }
